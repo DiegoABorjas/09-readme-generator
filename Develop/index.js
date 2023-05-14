@@ -11,7 +11,8 @@ function writeToFile(fileName, data) {}
 // TODO: Create a function to initialize app
 function askQuestions() {
     inquirer.prompt(questions).then(function(answers) {
-        generateMarkdown(answers)
+        const generatedAswers = generateMarkdown(answers)
+        console.log(generatedAswers)
     })
 }
 
