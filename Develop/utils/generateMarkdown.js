@@ -13,7 +13,7 @@ function renderLicenseBadge(license) {
     case 'BSD 3':
       return `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`
     case 'None':
-      return
+      return ''
   }
 }
 
@@ -23,7 +23,12 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === 'None') {
+    return `This project has no license.`
+  } else
+  return `This project is licensed under the ${license} license.`
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -68,7 +73,7 @@ function generateMarkdown(data) {
   ---
 
   ## License
-  This project is licensed under the ${data.license} license.
+  ${renderLicenseSection(data.license)}
 
   ---
 

@@ -17,7 +17,6 @@ function writeToFile(fileName, data) {
 function askQuestions() {
     inquirer.prompt(questions).then(function(answers) {
         const generatedAswers = generateMarkdown(answers)
-        console.log(generatedAswers)
         writeToFile('README.md', generatedAswers)
     })
 }
